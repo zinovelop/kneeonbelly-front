@@ -1,0 +1,104 @@
+.attendance {
+    margin: 20px;
+}
+.container {
+    display: flex;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    /*width: 300px;*/
+    width: 95vw;
+    height: 90vh;
+    justify-content: space-around;
+}
+
+.container-items {
+    display: inline;
+}
+
+.at-box{
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 30vw;
+    height: 81vh;
+    margin: 10px;
+    padding: 30px;
+}
+
+.at-list{
+    line-height : 200%;
+}
+
+.header {
+    margin-top: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+}
+.input-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    position: relative;
+}
+
+.inputText{
+    border: 0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0); /* 파란색, 50% 투명도 */
+    color: black; /* 텍스트는 불투명하게 유지 */
+    font-size: 24px;
+    text-align: left;
+    letter-spacing: 50px;
+    margin: 10px;
+    padding-left: 50px;
+}
+
+.input-box {
+    width: 50px;
+    height: 50px;
+    margin: 0 5px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top:100px;
+}
+
+.keypad button {
+
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.keypad button:hover {
+    background-color: #d5d5d5;
+}
+
+.keypad button:active {
+    background-color: #ccc;
+}

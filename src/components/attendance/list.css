@@ -1,0 +1,66 @@
+
+.at-list-item {
+    display: flex;
+    border: 1px #ccc ridge;
+    border-radius: 10px 0px 0px 10px;
+    margin: 10px;
+}
+ul {
+    list-style: none;
+    padding-left: 0px;
+}
+
+.belt {
+    font-size: 15px;
+    width: 200px;
+    /*border-bottom-left-radius:10px;*/
+    /*border-top-left-radius:10px;*/
+    border-radius: 10px 0px 0px 10px;
+}
+.grau {
+    display: flex;
+    width:100px;
+    height: 35px;
+    background-color: black;
+    justify-content: flex-end;
+}
+.grau-red{
+    display: flex;
+    width:100px;
+    height: 35px;
+    background-color: red;
+    justify-content: flex-end;
+}
+
+.stripe {
+    background-color: white;
+    width: 15px;
+    height: 35px;
+    margin-right: 8px;
+}
+
+.date-time {
+    width: 100px;
+    text-align: center;
+}
+
+/* 벨트 색상 */
+.white{
+    background-color: #e8e1e1;
+}
+.blue {
+    color: white;
+    background-color: #2828dd;
+}
+.purple {
+    color: white;
+    background-color: #aa23aa;
+}
+.brown {
+    color: white;
+    background-color: #711d1d;
+}
+.black {
+    color: white;
+    background-color: black;
+}
