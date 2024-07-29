@@ -1,6 +1,7 @@
 import './list.css'
 import {useEffect, useState} from "react";
-import {getMembers} from "./api/AttandanceService";
+import {getTodayAttendance} from "../../api/AttandanceService";
+import { useStContext } from '../../constances/Context';
 
 const drawGaru = (stripe) => {
     const result =[];
@@ -12,32 +13,44 @@ const drawGaru = (stripe) => {
     return result
 }
 
+const formatDate = (datetime) => {
+    const date = new Date(datetime);
+
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    const seconds = date.getSeconds().toString().padStart(2, '0');
+
+    // hh-mm-ss 형식으로 변환
+    return `${hours}:${minutes}:${seconds}`;
+}
 
 function DailyList() {
 
-    const [users, setUsers] = useState([]);
+    const [todayAtt, setTodayAtt] = useState([]);
+    const context = useStContext();
+
 
     useEffect(() => {
-        getMembers().then(response => {
-            console.log(response.data);
-            setUsers(response.data)
+        getTodayAttendance().then(response => {
+            setTodayAtt(response.data);
         });
-    }, []);
+    }, [context.todayCnt]);
+
     return (
         <div className={'container-items'}>
             <div className={'at-box'}>
-                <div>오늘의 출석</div>
+                <div>오늘의 출석 : <span>{context.todayCnt}명</span></div>
                 <div className={'at-list'}>
                     <ul>
-                        {users.map(user => {
+                        {todayAtt.map(att => {
                             return (
-                                <li key={user.id}>
+                                <li key={att.id}>
                                     <div className={'at-list-item'}>
-                                        <div className={`belt ${user.grade.toLowerCase()}`}>{user.name}</div>
-                                        <div className={user.grade==='BLACK'?'grau-red':'grau'}>
-                                            {drawGaru(user.grau)}
+                                        <div className={`belt ${att.member.grade.toLowerCase()}`}>{att.member.name}</div>
+                                        <div className={att.member.grade==='BLACK'?'grau-red':'grau'}>
+                                            {drawGaru(att.member.grau)}
                                         </div>
-                                        <div className={'date-time'}>17시 34분</div>
+                                        <div className={'date-time'}>{formatDate(att.attendanceTime)}</div>
                                     </div>
                                 </li>
                             )

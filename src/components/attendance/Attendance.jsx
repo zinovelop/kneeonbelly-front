@@ -2,11 +2,15 @@ import './Attendance.css';
 import Keypad from "./Keypad";
 import DailyList from "./DailyList";
 import MonthlyList from "./MonthlyList";
+import ContextProvider from '../../constances/Context';
 
 function Attendance() {
     return (
+        
         <div className="attendance">
-            <InputNum/>
+            <ContextProvider>
+                <InputNum/>
+            </ContextProvider>
         </div>
     )
 }

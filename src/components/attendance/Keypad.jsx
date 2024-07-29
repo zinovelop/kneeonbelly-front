@@ -1,8 +1,10 @@
 import {useEffect, useState} from "react";
-import {doAttendance} from "./api/AttandanceService";
+import {doAttendance} from "../../api/AttandanceService";
+import { useStContext } from "../../constances/Context";
 
 function KeyPad() {
     const [inputNum, setInputNum] = useState('');
+    const context = useStContext();
 
 
     function buttonClick(event) {
@@ -21,14 +23,18 @@ function KeyPad() {
     useEffect(() => {
         if(inputNum.length===4){
             setTimeout(() =>{
+
                 const param = {
-                    num: inputNum,
+                    number: inputNum,
                 }
                 doAttendance(param);
+                context.todayCntUp();
                 clearBtn();
             }, 100);
         }
-    }, [inputNum]);
+    }, [inputNum, context]);
+    
+
 
     return (
         <>
