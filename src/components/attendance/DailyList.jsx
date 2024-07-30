@@ -46,8 +46,8 @@ function DailyList() {
                             return (
                                 <li key={att.id}>
                                     <div className={'at-list-item'}>
-                                        <div className={`belt ${att.member.grade.toLowerCase()}`}>{att.member.name}</div>
-                                        <div className={att.member.grade==='BLACK'?'grau-red':'grau'}>
+                                        <div className={`belt ${att.member.belt.toLowerCase()}`}>{att.member.name}</div>
+                                        <div className={att.member.belt==='BLACK'?'grau-red':'grau'}>
                                             {drawGaru(att.member.grau)}
                                         </div>
                                         <div className={'date-time'}>{formatDate(att.attendanceTime)}</div>

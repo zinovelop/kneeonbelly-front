@@ -5,7 +5,7 @@ import { useStContext } from "../../constances/Context";
 function KeyPad() {
     const [inputNum, setInputNum] = useState('');
     const context = useStContext();
-
+    const [message, setMessage] = useState('')
 
     function buttonClick(event) {
         const buttonValue = event.target.innerHTML;
@@ -27,7 +27,11 @@ function KeyPad() {
                 const param = {
                     number: inputNum,
                 }
-                doAttendance(param);
+                doAttendance(param)
+                .catch(error => {
+                    setMessage(error.response.data.message)
+                    setTimeout(() => {setMessage()}, 3000)
+                })
                 context.todayCntUp();
                 clearBtn();
             }, 100);
@@ -45,6 +49,7 @@ function KeyPad() {
                 <div className="input-box"></div>
                 <input type="text" className="inputText" value={inputNum} maxLength="3" readOnly/>
             </div>
+            <div>{message}</div>
             <div className="keypad">
                 <button onClick={buttonClick}>1</button>
                 <button onClick={buttonClick}>2</button>

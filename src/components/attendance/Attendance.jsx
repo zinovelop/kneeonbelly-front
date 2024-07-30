@@ -3,11 +3,13 @@ import Keypad from "./Keypad";
 import DailyList from "./DailyList";
 import MonthlyList from "./MonthlyList";
 import ContextProvider from '../../constances/Context';
+import Header from '../Header';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function Attendance() {
     return (
-        
-        <div className="attendance">
+        <div className="AttendanceApp">
+            <Header/>
             <ContextProvider>
                 <InputNum/>
             </ContextProvider>
@@ -18,7 +20,7 @@ function Attendance() {
 
 function InputNum() {
     return (
-        <div className="container">
+        <div className="attendance">
             <DailyList/>
             <div className={'container-items'}>
                 <div className="header">
