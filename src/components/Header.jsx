@@ -1,33 +1,50 @@
+// import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+// import Form from 'react-bootstrap/Form';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+// import NavDropdown from 'react-bootstrap/NavDropdown';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+
 function Header() {
 
     return (
-        <header className="border-bottom border-light border-5 mb-0">
-            <div className="container">
-                <div className="row">
-                    <nav className="navbar navbar-expand-lg">
-                        <a className="navbar-brand ms-2 fs-2 fw-bold text-black" href="naver.com">KneeOnBelly</a>
-                        <div className="collapse navbar-collapse">
-                            <ul className="navbar-nav">
-                                <li className="nav-item">
-                                    1111
-                                </li>
-                                <li className="nav-item">
-                                    2222
-                                </li>
-                            </ul>
-                        </div>
-                        <ul className="navbar-nav">
-                            <li className="nav-item">
-                                3333
-                            </li>
-                            <li className="nav-item">
-                                4444
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </header>
+        <>
+      {[false].map((expand) => (
+        <Navbar key={expand} expand={expand} className="bg-body-tertiary mb-3">
+          <Container fluid>
+            <Navbar.Brand href="#">KneeOnBelly</Navbar.Brand>
+            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
+            <Navbar.Offcanvas
+              id={`offcanvasNavbar-expand-${expand}`}
+              aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+              placement="end"
+            >
+              <Offcanvas.Header closeButton>
+                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+                  메뉴
+                </Offcanvas.Title>
+              </Offcanvas.Header>
+              <Offcanvas.Body>
+                <Nav className="justify-content-end flex-grow-1 pe-3">
+                  <Nav.Link href="#action1">관리자 페이지</Nav.Link>
+                  {/* <Nav.Link href="#action2">Link</Nav.Link> */}
+                </Nav>
+                {/* <Form className="d-flex">
+                  <Form.Control
+                    type="search"
+                    placeholder="Search"
+                    className="me-2"
+                    aria-label="Search"
+                  />
+                  <Button variant="outline-success">Search</Button>
+                </Form> */}
+              </Offcanvas.Body>
+            </Navbar.Offcanvas>
+          </Container>
+        </Navbar>
+      ))}
+    </>
     )
 }
 
